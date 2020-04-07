@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -13,10 +14,14 @@ import javax.persistence.*;
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "session_id")
     private long id;
 
     //@Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy="session")   // property name in Person entity
+    private Set<Estimator> estimators;
 
     public Session(String name) {
         this.name = name;
