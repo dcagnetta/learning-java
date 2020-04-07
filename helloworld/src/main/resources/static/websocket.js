@@ -16,14 +16,7 @@ function connect() {
     let socket = new SockJS('/websocket-demo');
     stompClient = Stomp.over(socket);
 
-    stompClient.connect({}, function (frame) {
-        setConnected(true);
-        console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/notification', function (message) {
-            console.log('Message Received: ' + message.body);
-            showGreeting(JSON.parse(message.body));
-        });
-    });
+
 
     stompClient.connect({
         "user" : $("#login").val()
@@ -33,6 +26,11 @@ function connect() {
         stompClient.subscribe('/user/queue/reply', function(message) {
             console.log('Message Received: ' + message.body);
             showDirectMessages(message.body);
+        });
+
+        stompClient.subscribe('/topic/notification', function (message) {
+            console.log('Message Received: ' + message.body);
+            showGreeting(JSON.parse(message.body));
         });
     });
 }
