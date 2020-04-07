@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class Session {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "session_id")
     private long id;
 

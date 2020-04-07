@@ -14,7 +14,7 @@ import java.util.Set;
 public class Estimator {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -25,4 +25,9 @@ public class Estimator {
 
     @OneToMany(mappedBy = "estimator")
     Set<Estimate> estimates;
+
+    public Estimator(String name, Session session) {
+        this.name = name;
+        this.session = session;
+    }
 }

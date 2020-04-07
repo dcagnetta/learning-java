@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class EstimationItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "estimate_item_id")
     private long id;
 
@@ -26,4 +26,10 @@ public class EstimationItem {
 
     @OneToMany(mappedBy = "estimationItem")
     Set<Estimate> ratings;
+
+    public EstimationItem(String name, String description, Session session) {
+        this.name = name;
+        this.description = description;
+        this.session = session;
+    }
 }

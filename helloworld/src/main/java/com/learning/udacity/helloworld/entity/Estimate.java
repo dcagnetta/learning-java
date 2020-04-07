@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -14,18 +13,28 @@ import java.util.Date;
 public class Estimate {
 
     @Id
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "estimator_id")
-    Estimator estimator;
+    private Estimator estimator;
 
     @ManyToOne
     @JoinColumn(name = "estimate_item_id")
-    EstimationItem estimationItem;
+    private EstimationItem estimationItem;
 
+    private int confidence;
+    private int timeStart;
+    private int timeEnd;
+    private String timePeriod;
 
-    private double confidence;
-    private Date startDate;
-    private Date endDate;
+    public Estimate(int confidence, int timeStart, int timeEnd, String timePeriod, EstimationItem estimationItem, Estimator estimator) {
+        this.confidence = confidence;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        this.timePeriod = timePeriod;
+        this.estimationItem = estimationItem;
+        this.estimator = estimator;
+    }
 }
