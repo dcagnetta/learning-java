@@ -30,6 +30,8 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="connect">WebSocket connection:</label>
+                    <label for="login">Username:</label>
+                    <input id="login" type="text" />
                     <button id="connect" class="btn btn-default" type="submit">Connect</button>
                     <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
                     </button>
@@ -39,12 +41,24 @@
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="name">Notification Payload?</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your payload here...">
+                    <label for="notification">Notification Payload?</label>
+                    <input type="text" id="notification" class="form-control" placeholder="Your payload here...">
                 </div>
                 <button id="send" class="btn btn-default" type="submit">Send</button>
             </form>
         </div>
+
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="receiver">Receiver name ?</label>
+                    <input type="text" id="receiver" class="form-control" placeholder="receiver name here...">
+                </div>
+                <button id="sendToUser" class="btn btn-default" type="submit">Send</button>
+            </form>
+        </div>
+
+
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -59,6 +73,22 @@
             </table>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="direct-messages-table" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Direct User Messages</th>
+                </tr>
+                </thead>
+                <tbody id="direct-messages">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 </div>
 </body>
 </html>
