@@ -14,10 +14,10 @@ public class WebSocketConfig implements  WebSocketMessageBrokerConfigurer {
     public void configureMessageBroker(MessageBrokerRegistry config) {
         // enable a simple memory-based message broker to carry the greeting
         // messages back to the client on destinations prefixed with /topic
-        config.enableSimpleBroker("/topic");
-        // This prefix will be used to define all the message mappings.
+        config.enableSimpleBroker("/topic", "/queue" ,"/user");        // This prefix will be used to define all the message mappings.
         // For example, /app/notification is the endpoint that the MessageController.sendNotification() method is mapped to handle.
         config.setApplicationDestinationPrefixes("/app");
+        config.setUserDestinationPrefix("/user");
     }
 
     @Override
