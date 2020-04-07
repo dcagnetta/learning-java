@@ -25,43 +25,50 @@
     enabled. Please enable
     Javascript and reload this page!</h2></noscript>
 <div id="main-content" class="container">
+    <h2>WebSockets Connections</h2>
+
     <div class="row">
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="connect">WebSocket connection:</label>
                     <label for="login">Username:</label>
-                    <input id="login" type="text" />
+                    <input id="login" type="text" class="form-control" />
                     <button id="connect" class="btn btn-default" type="submit">Connect</button>
                     <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
                     </button>
                 </div>
             </form>
         </div>
+    </div>
+
+    <br />
+    <hr/>
+
+
+    <div class="row">
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
                     <label for="notification">Notification Payload?</label>
-                    <input type="text" id="notification" class="form-control" placeholder="Your payload here...">
+                    <input type="text" id="notification" class="form-control" placeholder="send broadcast message">
                 </div>
                 <button id="send" class="btn btn-default" type="submit">Send</button>
             </form>
         </div>
-
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
                     <label for="receiver">Receiver name ?</label>
-                    <input type="text" id="receiver" class="form-control" placeholder="receiver name here...">
+                    <input type="text" id="receiver" class="form-control" placeholder="send direct message">
                 </div>
                 <button id="sendToUser" class="btn btn-default" type="submit">Send</button>
             </form>
         </div>
-
-
     </div>
+
+    <h4>Results</h4>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <table id="conversation" class="table table-striped">
                 <thead>
                 <tr>
@@ -72,10 +79,8 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <table id="direct-messages-table" class="table table-striped">
                 <thead>
                 <tr>
@@ -87,6 +92,7 @@
             </table>
         </div>
     </div>
+
 
 
 </div>
