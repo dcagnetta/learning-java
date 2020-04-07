@@ -11,6 +11,6 @@ public class MessageController {
     @MessageMapping("/notification")
     @SendTo("/topic/notification")
     public Notification sendNotification(String payload) {
-        return new Notification(payload);
+        return new Notification("Success", "Hello World", payload);
     }
 }
