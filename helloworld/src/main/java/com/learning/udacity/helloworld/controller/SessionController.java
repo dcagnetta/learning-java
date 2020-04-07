@@ -5,6 +5,7 @@ import com.learning.udacity.helloworld.entity.Session;
 import com.learning.udacity.helloworld.models.CreateSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class SessionController {
     @Autowired
     SessionRepository repository;
 
+    // http://localhost:8080/session/create
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody CreateSession command){
@@ -23,10 +25,11 @@ public class SessionController {
         repository.save(new Session(command.getName()));
     }
 
+    // http://localhost:8080/session/
     @GetMapping()
-    public List<Session> findAll(){
-        List<Session> response = repository.findAll();
-        return response;
+    public ResponseEntity<List<Session>> findAll(){
+        List<Session> sessions = repository.findAll();
+        return new ResponseEntity<>(sessions, HttpStatus.OK);
     }
 
 }
