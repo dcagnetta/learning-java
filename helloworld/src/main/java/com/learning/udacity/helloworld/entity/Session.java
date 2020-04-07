@@ -23,6 +23,9 @@ public class Session {
     @OneToMany(mappedBy="session")   // property name in Person entity
     private Set<Estimator> estimators;
 
+    @OneToMany(mappedBy="session")   // property name in EstimationItem entity
+    private Set<EstimationItem> items;
+
     public Session(String name) {
         this.name = name;
     }

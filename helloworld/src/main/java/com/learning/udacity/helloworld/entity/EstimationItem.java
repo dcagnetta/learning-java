@@ -11,18 +11,19 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Estimator {
-
+public class EstimationItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "estimate_item_id")
+    private long id;
 
     private String name;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name="session_id", nullable=false)
     private Session session;
 
-    @OneToMany(mappedBy = "estimator")
-    Set<Estimate> estimates;
+    @OneToMany(mappedBy = "estimationItem")
+    Set<Estimate> ratings;
 }
