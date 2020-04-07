@@ -6,6 +6,7 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
+      # Hibernate ddl auto (create, create-drop, validate, update)
       ddl-auto: create-drop #drop n create table again, good for testing, comment this in production
 
   datasource:
