@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop #drop n create table again, good for testing, comment this in production
+
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://rogue.db.elephantsql.com/hhgfafoj
+    username: hhgfafoj
+    password: bxK--h2kwjxoblpg2JsN1AYIHLef0012
+
+
+

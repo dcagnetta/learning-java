@@ -1,8 +1,8 @@
 package com.learning.udacity.helloworld.controller;
 
+import com.learning.udacity.helloworld.models.Notification;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import com.learning.udacity.helloworld.models.Notification;
 import org.springframework.stereotype.Controller;
 
 @Controller
