@@ -1,13 +1,11 @@
-<div id="session-create-page">
-    <div class="page-container">
-        <h1 class="title">Create new session</h1>
-        <form id="createForm">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="session name" autocomplete="off" class="form-control" />
-            </div>
-            <div class="form-group">
-                <button type="submit" class="accent btn-submit">Create</button>
-            </div>
-        </form>
-    </div>
-</div>
+<nb-card accent="primary">
+    <nb-card-header>New Session</nb-card-header>
+    <nb-card-body>
+        <div class="form-group">
+            <input type="text" nbInput fullWidth placeholder="Session name">
+        </div>
+        <br />
+
+        <button nbButton status="primary" size="small">Start</button>
+    </nb-card-body>
+</nb-card>

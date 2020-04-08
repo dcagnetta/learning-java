@@ -27,7 +27,8 @@
       ],
       "@ng-websocket-app/session/feature-join": [
         "libs/session/feature-join/src/index.ts"
-      ]
+      ],
+      "@ng-websocket-app/theme/core": ["libs/theme/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

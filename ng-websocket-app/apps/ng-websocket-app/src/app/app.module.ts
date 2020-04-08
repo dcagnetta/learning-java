@@ -6,9 +6,8 @@ import { SessionFeatureCreateModule } from '@ng-websocket-app/session/feature-cr
 import { HttpClientModule } from '@angular/common/http';
 import { SessionFeatureJoinModule } from '@ng-websocket-app/session/feature-join';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
+import { ThemeCoreModule } from '@ng-websocket-app/theme/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,10 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     SessionFeatureCreateModule,
     SessionFeatureJoinModule,
 
-    NbThemeModule.forRoot({ name: 'dark' }),
-    NbSidebarModule.forRoot(),
-    NbLayoutModule,
-    NbEvaIconsModule,
+    ThemeCoreModule,
+
     AppRoutingModule,
   ],
   providers: [],
