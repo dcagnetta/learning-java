@@ -16,7 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-websocket-app/shared/assets": ["libs/shared/assets/src/index.ts"]
+      "@ng-websocket-app/shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@ng-websocket-app/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@ng-websocket-app/shared/environments": [
+        "libs/shared/environments/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

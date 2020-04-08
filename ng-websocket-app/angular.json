@@ -3,11 +3,7 @@
   "projects": {
     "ng-websocket-app": {
       "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "apps/ng-websocket-app",
       "sourceRoot": "apps/ng-websocket-app/src",
       "prefix": "ng-websocket-app",
@@ -33,15 +29,17 @@
                 "output": "assets"
               }
             ],
-            "styles": ["apps/ng-websocket-app/src/styles.scss"],
+            "styles": [
+              "libs/shared/styles/src/index.scss"
+            ],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/ng-websocket-app/src/environments/environment.ts",
-                  "with": "apps/ng-websocket-app/src/environments/environment.prod.ts"
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -91,7 +89,10 @@
               "apps/ng-websocket-app/tsconfig.app.json",
               "apps/ng-websocket-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/ng-websocket-app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ng-websocket-app/**"
+            ]
           }
         },
         "test": {
@@ -126,8 +127,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/ng-websocket-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ng-websocket-app-e2e/**"]
+            "tsConfig": [
+              "apps/ng-websocket-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ng-websocket-app-e2e/**"
+            ]
           }
         }
       }
@@ -137,22 +143,99 @@
       "root": "libs/shared/assets",
       "sourceRoot": "libs/shared/assets/src",
       "prefix": "ng-websocket-app",
-      "architect": { },
+      "architect": {},
+      "schematics": {}
+    },
+    "shared-styles": {
+      "projectType": "library",
+      "root": "libs/shared/styles",
+      "sourceRoot": "libs/shared/styles/src",
+      "prefix": "ng-websocket-app",
+      "architect": {},
+      "schematics": {}
+    },
+    "shared-environments": {
+      "projectType": "library",
+      "root": "libs/shared/environments",
+      "sourceRoot": "libs/shared/environments/src",
+      "prefix": "y",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/environments/tsconfig.lib.json",
+              "libs/shared/environments/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/environments/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/environments/jest.config.js",
+            "tsConfig": "libs/shared/environments/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/environments/src/test-setup.ts"
+          }
+        }
+      },
       "schematics": {
         "@nrwl/angular:component": {
-          "style": "scss"
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/data-access",
+      "sourceRoot": "libs/shared/data-access/src",
+      "prefix": "ng-websocket-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/tsconfig.lib.json",
+              "libs/shared/data-access/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/jest.config.js",
+            "tsConfig": "libs/shared/data-access/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/data-access/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }
   },
   "cli": {
     "defaultCollection": "@nrwl/angular",
-    "analytics": "33f2059a-21cf-4966-91b1-5480918ea767"
+    "analytics": "54486d18-cd87-4df4-9a6f-0d3649bb1707"
   },
   "schematics": {
     "@nrwl/angular:application": {
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:component": {
+      "styleext": "scss"
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"

@@ -28,6 +28,12 @@
     },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
+    },
+    "shared-styles": {
+      "tags": ["scope:shared", "type:styles"]
+    },
+    "shared-environments": {
+      "tags": ["scope:shared", "type:environments"]
     }
   }
 }
