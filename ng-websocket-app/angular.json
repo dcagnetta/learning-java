@@ -22,8 +22,16 @@
             "tsConfig": "apps/ng-websocket-app/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/ng-websocket-app/src/favicon.ico",
-              "apps/ng-websocket-app/src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "libs/shared/assets/src",
+                "output": ""
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
+              }
             ],
             "styles": ["apps/ng-websocket-app/src/styles.scss"],
             "scripts": []
@@ -121,6 +129,18 @@
             "tsConfig": ["apps/ng-websocket-app-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/ng-websocket-app-e2e/**"]
           }
+        }
+      }
+    },
+    "shared-assets": {
+      "projectType": "library",
+      "root": "libs/shared/assets",
+      "sourceRoot": "libs/shared/assets/src",
+      "prefix": "ng-websocket-app",
+      "architect": { },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

@@ -25,6 +25,9 @@
     "ng-websocket-app-e2e": {
       "tags": [],
       "implicitDependencies": ["ng-websocket-app"]
+    },
+    "shared-assets": {
+      "tags": ["scope:shared", "type:assets"]
     }
   }
 }
