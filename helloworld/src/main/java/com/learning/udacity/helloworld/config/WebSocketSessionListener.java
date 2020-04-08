@@ -1,7 +1,9 @@
 package com.learning.udacity.helloworld.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
@@ -10,6 +12,13 @@ import org.springframework.web.socket.messaging.SessionSubscribeEvent;
 @Slf4j
 @Component
 public class WebSocketSessionListener {
+
+    private SimpMessagingTemplate sender;
+
+    @Autowired
+    public WebSocketSessionListener(SimpMessagingTemplate sender) {
+        this.sender = sender;
+    }
 
     @EventListener
     public void handleSessionConnectedEvent(SessionConnectedEvent event) {
@@ -25,8 +34,11 @@ public class WebSocketSessionListener {
         GenericMessage message = (GenericMessage) event.getMessage();
         String simpDestination = (String) message.getHeaders().get("simpDestination");
 
-        if (simpDestination.startsWith("/topic/group/1")) {
+        int groupId = 1;
+
+        if (simpDestination.startsWith("/topic/group/" + groupId)) {
             // do stuff
+            sender.convertAndSend("/topic/group/" + groupId + "/notification", "Welcome to group.");
         }
     }
 }

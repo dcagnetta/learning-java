@@ -22,7 +22,8 @@ function connect() {
         "user" : $("#login").val()
     }, function (frame) {
         setConnected(true);
-        console.log('Connected: (/user/queue/reply)' + frame);
+        console.log('Connected: ' + frame);
+
         stompClient.subscribe('/user/queue/reply', function(message) {
             console.log('Message Received: ' + message.body);
             showDirectMessages(message.body);
@@ -31,6 +32,12 @@ function connect() {
         stompClient.subscribe('/topic/notification', function (message) {
             console.log('Message Received: ' + message.body);
             showGreeting(JSON.parse(message.body));
+        });
+
+        stompClient.subscribe('/topic/group/1/notification', function (message) {
+            // to something..
+            console.log('Group Message Received: ' + message.body);
+            alert(message.body);
         });
     });
 }
