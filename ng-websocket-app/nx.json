@@ -20,7 +20,11 @@
   },
   "projects": {
     "ng-websocket-app": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": [
+        "shared-assets",
+        "shared-styles"
+      ]
     },
     "ng-websocket-app-e2e": {
       "tags": [],
