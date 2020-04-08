@@ -29,7 +29,10 @@
                 "output": "assets"
               }
             ],
-            "styles": ["libs/shared/styles/src/index.scss"],
+            "styles": [
+              "libs/shared/styles/src/index.scss",
+              "node_modules/@nebular/theme/styles/prebuilt/dark.css"
+            ],
             "scripts": []
           },
           "configurations": {
