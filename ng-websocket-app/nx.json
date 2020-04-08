@@ -21,10 +21,7 @@
   "projects": {
     "ng-websocket-app": {
       "tags": [],
-      "implicitDependencies": [
-        "shared-assets",
-        "shared-styles"
-      ]
+      "implicitDependencies": ["shared-assets", "shared-styles"]
     },
     "ng-websocket-app-e2e": {
       "tags": [],
@@ -38,6 +35,12 @@
     },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
+    },
+    "session-domain": {
+      "tags": ["domain:session", "type:domain-logic"]
+    },
+    "session-feature-create": {
+      "tags": ["domain:session", "type:feature"]
     }
   }
 }

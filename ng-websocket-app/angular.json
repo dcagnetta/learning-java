@@ -29,9 +29,7 @@
                 "output": "assets"
               }
             ],
-            "styles": [
-              "libs/shared/styles/src/index.scss"
-            ],
+            "styles": ["libs/shared/styles/src/index.scss"],
             "scripts": []
           },
           "configurations": {
@@ -89,10 +87,7 @@
               "apps/ng-websocket-app/tsconfig.app.json",
               "apps/ng-websocket-app/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ng-websocket-app/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/ng-websocket-app/**"]
           }
         },
         "test": {
@@ -127,13 +122,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/ng-websocket-app-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ng-websocket-app-e2e/**"
-            ]
+            "tsConfig": ["apps/ng-websocket-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/ng-websocket-app-e2e/**"]
           }
         }
       }
@@ -167,10 +157,7 @@
               "libs/shared/environments/tsconfig.lib.json",
               "libs/shared/environments/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/environments/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/environments/**"]
           }
         },
         "test": {
@@ -202,10 +189,7 @@
               "libs/shared/data-access/tsconfig.lib.json",
               "libs/shared/data-access/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/data-access/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/data-access/**"]
           }
         },
         "test": {
@@ -221,6 +205,70 @@
       "schematics": {
         "@nrwl/angular:component": {
           "styleext": "scss"
+        }
+      }
+    },
+    "session-domain": {
+      "projectType": "library",
+      "root": "libs/session/domain",
+      "sourceRoot": "libs/session/domain/src",
+      "prefix": "session",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/session/domain/tsconfig.lib.json",
+              "libs/session/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/session/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/session/domain/jest.config.js",
+            "tsConfig": "libs/session/domain/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/session/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "session-feature-create": {
+      "projectType": "library",
+      "root": "libs/session/feature-create",
+      "sourceRoot": "libs/session/feature-create/src",
+      "prefix": "session",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/session/feature-create/tsconfig.lib.json",
+              "libs/session/feature-create/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/session/feature-create/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/session/feature-create/jest.config.js",
+            "tsConfig": "libs/session/feature-create/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/session/feature-create/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

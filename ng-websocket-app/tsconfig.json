@@ -20,6 +20,10 @@
       "@ng-websocket-app/shared/styles": ["libs/shared/styles/src/index.ts"],
       "@ng-websocket-app/shared/environments": [
         "libs/shared/environments/src/index.ts"
+      ],
+      "@ng-websocket-app/session/domain": ["libs/session/domain/src/index.ts"],
+      "@ng-websocket-app/session/feature-create": [
+        "libs/session/feature-create/src/index.ts"
       ]
     }
   },

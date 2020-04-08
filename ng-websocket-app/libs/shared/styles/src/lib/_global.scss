@@ -111,7 +111,7 @@ button.accent {
   text-align: center;
 }
 
-.username-page-container {
+.page-container {
   background: #fff;
   box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
   border-radius: 2px;
@@ -131,7 +131,7 @@ button.accent {
   margin-top: -160px;
 }
 
-.username-page-container .username-submit {
+.page-container .btn-submit {
   margin-top: 10px;
 }
 
@@ -268,7 +268,7 @@ button.accent {
     height: calc(100% - 30px);
   }
 
-  .username-page-container {
+  .page-container {
     width: auto;
     margin-left: 15px;
     margin-right: 15px;
