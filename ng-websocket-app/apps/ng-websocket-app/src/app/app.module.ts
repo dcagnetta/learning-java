@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SessionFeatureCreateModule } from '@ng-websocket-app/session/feature-create';
 import { HttpClientModule } from '@angular/common/http';
+import { SessionFeatureJoinModule } from '@ng-websocket-app/session/feature-join';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
 
     SessionFeatureCreateModule,
+    SessionFeatureJoinModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

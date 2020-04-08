@@ -24,6 +24,9 @@
       "@ng-websocket-app/session/domain": ["libs/session/domain/src/index.ts"],
       "@ng-websocket-app/session/feature-create": [
         "libs/session/feature-create/src/index.ts"
+      ],
+      "@ng-websocket-app/session/feature-join": [
+        "libs/session/feature-join/src/index.ts"
       ]
     }
   },

@@ -41,6 +41,9 @@
     },
     "session-feature-create": {
       "tags": ["domain:session", "type:feature"]
+    },
+    "session-feature-join": {
+      "tags": ["domain:session", "type:feature"]
     }
   }
 }
