@@ -24,6 +24,6 @@ public class MessageController {
     @MessageMapping("/hello")
     public void greeting(Principal principal, DirectMessage message) throws  Exception {
          var userMessage = "Hello, " + message.getReceiver() + " from " + message.getSender();
-        sender.convertAndSendToUser(message.getReceiver(), "/queue/reply", userMessage);
+        sender.convertAndSendToUser(message.getReceiver(), "/queue/user-reply", userMessage);
     }
 }

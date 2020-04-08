@@ -28,10 +28,18 @@ public class WebSocketConfig implements  WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        // enable a simple memory-based message broker to carry the greeting
-        // messages back to the client on destinations prefixed with /topic
-        config.enableSimpleBroker("/topic", "/queue" ,"/user");        // This prefix will be used to define all the message mappings.
-        // For example, /app/notification is the endpoint that the MessageController.sendNotification() method is mapped to handle.
+        /*
+        *  Configure RabbitMQ Broker
+        *  https://stackoverflow.com/a/60291775/6299334
+        * */
+        config.enableStompBrokerRelay("/topic", "/queue")   // This prefix will be used to define all the message mappings.
+                .setRelayHost("localhost")
+                .setRelayPort(61613)
+                .setSystemLogin("admin")
+                .setSystemPasscode("admin")
+                .setClientLogin("admin")
+                .setClientPasscode("admin");
+
         config.setApplicationDestinationPrefixes("/app");
         config.setUserDestinationPrefix("/user");
     }

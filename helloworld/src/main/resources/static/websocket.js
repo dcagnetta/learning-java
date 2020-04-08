@@ -24,7 +24,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
 
-        stompClient.subscribe('/user/queue/reply', function(message) {
+        stompClient.subscribe('/user/queue/user-reply', function(message) {
             console.log('Message Received: ' + message.body);
             showDirectMessages(message.body);
         });
@@ -34,7 +34,7 @@ function connect() {
             showGreeting(JSON.parse(message.body));
         });
 
-        stompClient.subscribe('/topic/group/1/notification', function (message) {
+        stompClient.subscribe('/topic/group-name', function (message) {
             // to something..
             console.log('Group Message Received: ' + message.body);
             alert(message.body);
