@@ -52,6 +52,9 @@ public class WebSocketConfig implements  WebSocketMessageBrokerConfigurer {
 
                 var accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
 
+                /*
+                *  Sets the Principal to the connected user
+                * */
                 if (accessor != null && StompCommand.CONNECT.equals(accessor.getCommand())) {
                     String user = accessor.getFirstNativeHeader("user");
                     if (!StringUtils.isEmpty(user)) {
