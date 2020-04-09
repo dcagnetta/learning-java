@@ -125,6 +125,13 @@
               "domain:notifications",
               "domain:shared"
             ]
+          },
+          {
+            "sourceTag": "domain:estimation",
+            "onlyDependOnLibsWithTags": [
+              "domain:estimation",
+              "domain:shared"
+            ]
           }
         ]
       }

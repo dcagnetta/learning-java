@@ -62,6 +62,15 @@
     },
     "shared-data-access": {
       "tags": ["scope:shared", "type:data-access"]
+    },
+    "estimation-domain": {
+      "tags": ["domain:estimation", "type:domain-logic"]
+    },
+    "estimation-feature-create-estimation-item": {
+      "tags": ["domain:estimation", "type:feature"]
+    },
+    "estimation-feature-make-estimation": {
+      "tags": ["domain:estimation", "type:feature"]
     }
   }
 }

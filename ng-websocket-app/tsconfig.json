@@ -37,6 +37,15 @@
       "@ng-websocket-app/shared/utils": ["libs/shared/utils/src/index.ts"],
       "@ng-websocket-app/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
+      ],
+      "@ng-websocket-app/estimation/domain": [
+        "libs/estimation/domain/src/index.ts"
+      ],
+      "@ng-websocket-app/estimation/feature-create-estimation-item": [
+        "libs/estimation/feature-create-estimation-item/src/index.ts"
+      ],
+      "@ng-websocket-app/estimation/feature-make-estimation": [
+        "libs/estimation/feature-make-estimation/src/index.ts"
       ]
     }
   },

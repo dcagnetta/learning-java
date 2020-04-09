@@ -1,0 +1,9 @@
+<h1>estimation-create-estimation-item</h1>
+
+<table class="table">
+    <tr *ngFor="let estimationItem of estimationItemList$ | async">
+        <td>{{estimationItem.id}}</td>
+        <td>{{estimationItem.name}}</td>
+        <td>{{estimationItem.description}}</td>
+    </tr>
+</table>

@@ -466,6 +466,108 @@
           "style": "scss"
         }
       }
+    },
+    "estimation-domain": {
+      "projectType": "library",
+      "root": "libs/estimation/domain",
+      "sourceRoot": "libs/estimation/domain/src",
+      "prefix": "estimation",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/estimation/domain/tsconfig.lib.json",
+              "libs/estimation/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/estimation/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/estimation/domain/jest.config.js",
+            "tsConfig": "libs/estimation/domain/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/estimation/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "estimation-feature-create-estimation-item": {
+      "projectType": "library",
+      "root": "libs/estimation/feature-create-estimation-item",
+      "sourceRoot": "libs/estimation/feature-create-estimation-item/src",
+      "prefix": "estimation",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/estimation/feature-create-estimation-item/tsconfig.lib.json",
+              "libs/estimation/feature-create-estimation-item/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/estimation/feature-create-estimation-item/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/estimation/feature-create-estimation-item/jest.config.js",
+            "tsConfig": "libs/estimation/feature-create-estimation-item/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/estimation/feature-create-estimation-item/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "estimation-feature-make-estimation": {
+      "projectType": "library",
+      "root": "libs/estimation/feature-make-estimation",
+      "sourceRoot": "libs/estimation/feature-make-estimation/src",
+      "prefix": "estimation",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/estimation/feature-make-estimation/tsconfig.lib.json",
+              "libs/estimation/feature-make-estimation/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/estimation/feature-make-estimation/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/estimation/feature-make-estimation/jest.config.js",
+            "tsConfig": "libs/estimation/feature-make-estimation/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/estimation/feature-make-estimation/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

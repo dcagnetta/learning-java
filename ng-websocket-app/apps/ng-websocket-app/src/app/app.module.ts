@@ -11,6 +11,9 @@ import { SharedEnvironmentsModule } from '@ng-websocket-app/shared/environments'
 import { SharedDataAccessModule } from '@ng-websocket-app/shared/data-access';
 import { TestComponent } from './test.component';
 import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
+import { EstimationFeatureCreateEstimationItemModule } from '@ng-websocket-app/estimation/feature-create-estimation-item';
+import { HttpClientModule } from '@angular/common/http';
+import { EstimationFeatureMakeEstimationModule } from '@ng-websocket-app/estimation/feature-make-estimation';
 
 @NgModule({
   declarations: [AppComponent, TestComponent],
@@ -32,7 +35,10 @@ import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
     // Delete test component
     NbCardModule,
     NbInputModule,
-    NbButtonModule
+    NbButtonModule,
+    EstimationFeatureCreateEstimationItemModule,
+    HttpClientModule,
+    EstimationFeatureMakeEstimationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
