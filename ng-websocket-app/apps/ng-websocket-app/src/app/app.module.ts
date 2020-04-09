@@ -9,9 +9,11 @@ import { SessionShellStartModule } from '@ng-websocket-app/session/shell-start';
 import { SharedCoreModule } from '@ng-websocket-app/shared/core';
 import { SharedEnvironmentsModule } from '@ng-websocket-app/shared/environments';
 import { SharedDataAccessModule } from '@ng-websocket-app/shared/data-access';
+import { TestComponent } from './test.component';
+import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TestComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -25,6 +27,12 @@ import { SharedDataAccessModule } from '@ng-websocket-app/shared/data-access';
     SessionShellStartModule,
 
     AppRoutingModule,
+
+
+    // Delete test component
+    NbCardModule,
+    NbInputModule,
+    NbButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
