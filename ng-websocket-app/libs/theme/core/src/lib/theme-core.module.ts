@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbIconModule, NbLayoutModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
+import { NbDialogModule, NbIconModule, NbLayoutModule, NbSidebarModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 const MODULES = [
   NbThemeModule.forRoot({ name: 'dark' }),
   NbSidebarModule.forRoot(),
   NbLayoutModule,
+  NbDialogModule.forRoot(),
+  NbToastrModule.forRoot(),
+
+  // Icons
   NbEvaIconsModule,
   NbIconModule
 ];
