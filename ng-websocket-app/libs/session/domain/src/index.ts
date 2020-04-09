@@ -6,3 +6,5 @@ export * from './lib/infrastructure/session.data.service';
 export * from './lib/application/create.facade';
 
 export * from './lib/application/join.facade';
+
+export * from './lib/application/commands';

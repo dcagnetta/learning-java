@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeCoreModule } from '@ng-websocket-app/theme/core';
 import { SessionShellStartModule } from '@ng-websocket-app/session/shell-start';
+import { SharedCoreModule } from '@ng-websocket-app/shared/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { SessionShellStartModule } from '@ng-websocket-app/session/shell-start';
     BrowserModule,
     HttpClientModule,
 
+    SharedCoreModule,
     ThemeCoreModule,
 
     SessionShellStartModule,

@@ -56,6 +56,9 @@
     },
     "shared-core": {
       "tags": ["scope:shared", "type:core"]
+    },
+    "shared-utils": {
+      "tags": ["scope:shared", "type:utils"]
     }
   }
 }

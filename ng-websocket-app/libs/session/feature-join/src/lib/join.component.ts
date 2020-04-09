@@ -1,21 +1,22 @@
-import { Component, OnInit} from '@angular/core';
-import { JoinFacade } from '@ng-websocket-app/session/domain';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { JoinFacade, StartSession } from '@ng-websocket-app/session/domain';
 
-@Component({
+@Component( {
   selector: 'session-join',
   templateUrl: './join.component.html',
   styleUrls: ['./join.component.scss']
-})
+} )
 export class JoinComponent implements OnInit {
-    
+
+  @Output()
+  joined = new EventEmitter<StartSession>();
+
+  constructor( private joinFacade: JoinFacade ) {
+  }
 
 
-    constructor(private joinFacade: JoinFacade) {
-    }
-
-
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
 }
 

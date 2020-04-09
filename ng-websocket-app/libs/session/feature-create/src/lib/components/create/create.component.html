@@ -1,11 +1,23 @@
 <nb-card accent="primary">
     <nb-card-header>New Session</nb-card-header>
     <nb-card-body>
-        <div class="form-group">
-            <input type="text" nbInput fullWidth placeholder="Session name">
-        </div>
-        <br />
 
-        <button nbButton status="primary" size="small">Start</button>
+        <form [formGroup]="form">
+
+            <div class="form-group">
+                <input type="text" nbInput fullWidth placeholder="Session name"
+                       [status]="checkStatus('name')"
+                       formControlName="name">
+            </div>
+            <br/>
+
+            <button nbButton status="primary" size="small"
+                    (click)="updateSession()"
+                    [disabled]="!form.valid">
+                Start
+            </button>
+
+        </form>
+
     </nb-card-body>
 </nb-card>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StartSession } from '@ng-websocket-app/session/domain';
 
 @Component({
   selector: 'session-start-container',
@@ -10,6 +11,10 @@ export class StartContainer implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSessionStarted( event: StartSession ) {
+    console.log('onSessionStarted', event);
   }
 
 }

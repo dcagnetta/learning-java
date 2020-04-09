@@ -1,4 +1,4 @@
 
-<session-create></session-create>
+<session-create (created)="onSessionStarted($event)"></session-create>
 
-<session-join></session-join>
+<session-join (joined)="onSessionStarted($event)"></session-join>
