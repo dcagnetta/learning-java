@@ -352,10 +352,7 @@
               "libs/session/shell-start/tsconfig.lib.json",
               "libs/session/shell-start/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/session/shell-start/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/session/shell-start/**"]
           }
         },
         "test": {
@@ -365,6 +362,70 @@
             "tsConfig": "libs/session/shell-start/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/session/shell-start/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "notifications-domain": {
+      "projectType": "library",
+      "root": "libs/notifications/domain",
+      "sourceRoot": "libs/notifications/domain/src",
+      "prefix": "notifications",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/notifications/domain/tsconfig.lib.json",
+              "libs/notifications/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/notifications/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/notifications/domain/jest.config.js",
+            "tsConfig": "libs/notifications/domain/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/notifications/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-core": {
+      "projectType": "library",
+      "root": "libs/shared/core",
+      "sourceRoot": "libs/shared/core/src",
+      "prefix": "ng-websocket-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/core/tsconfig.lib.json",
+              "libs/shared/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/core/jest.config.js",
+            "tsConfig": "libs/shared/core/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/core/src/test-setup.ts"
           }
         }
       },

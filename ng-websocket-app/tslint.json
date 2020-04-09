@@ -118,6 +118,13 @@
               "domain:session",
               "domain:shared"
             ]
+          },
+          {
+            "sourceTag": "domain:notifications",
+            "onlyDependOnLibsWithTags": [
+              "domain:notifications",
+              "domain:shared"
+            ]
           }
         ]
       }

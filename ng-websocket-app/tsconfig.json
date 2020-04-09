@@ -29,7 +29,11 @@
       "@ng-websocket-app/theme/core": ["libs/theme/core/src/index.ts"],
       "@ng-websocket-app/session/shell-start": [
         "libs/session/shell-start/src/index.ts"
-      ]
+      ],
+      "@ng-websocket-app/notifications/domain": [
+        "libs/notifications/domain/src/index.ts"
+      ],
+      "@ng-websocket-app/shared/core": ["libs/shared/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

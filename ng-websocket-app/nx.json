@@ -50,6 +50,12 @@
     },
     "session-shell-start": {
       "tags": ["scope:session", "type:shell"]
+    },
+    "notifications-domain": {
+      "tags": ["domain:notifications", "type:domain-logic"]
+    },
+    "shared-core": {
+      "tags": ["scope:shared", "type:core"]
     }
   }
 }
