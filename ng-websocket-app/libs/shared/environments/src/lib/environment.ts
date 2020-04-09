@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   baseUrls: {
-    signalRHub: 'http://localhost:5000',
-    apiUrl: 'http://localhost:5000/api'
+    websocketUrl: 'http://localhost:8080',
+    apiUrl: 'http://localhost:8080'
   }
 };
 

@@ -51,7 +51,8 @@ public class SessionController {
     }
 
     /* ***************************************************************** */
-
+    // TODO: move to own controller?
+    /* ***************************************************************** */
     @PostMapping("/join")
     @ResponseStatus(HttpStatus.OK)
     public void create(@RequestBody JoinSession command){

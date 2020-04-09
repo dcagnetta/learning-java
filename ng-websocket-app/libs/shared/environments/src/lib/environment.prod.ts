@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   baseUrls: {
-    signalRHub: '/signalr-hub',
+    websocketUrl: '/websocket',
     apiUrl: '/api/backend'
   }
 };
