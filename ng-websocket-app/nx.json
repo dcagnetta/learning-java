@@ -47,6 +47,9 @@
     },
     "theme-core": {
       "tags": ["scope:shared", "type:theme"]
+    },
+    "session-shell-start": {
+      "tags": ["scope:session", "type:shell"]
     }
   }
 }

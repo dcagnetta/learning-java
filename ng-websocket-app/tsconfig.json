@@ -16,8 +16,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-websocket-app/shared/assets": ["libs/shared/assets/src/index.ts"],
-      "@ng-websocket-app/shared/styles": ["libs/shared/styles/src/index.ts"],
       "@ng-websocket-app/shared/environments": [
         "libs/shared/environments/src/index.ts"
       ],
@@ -28,7 +26,10 @@
       "@ng-websocket-app/session/feature-join": [
         "libs/session/feature-join/src/index.ts"
       ],
-      "@ng-websocket-app/theme/core": ["libs/theme/core/src/index.ts"]
+      "@ng-websocket-app/theme/core": ["libs/theme/core/src/index.ts"],
+      "@ng-websocket-app/session/shell-start": [
+        "libs/session/shell-start/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
