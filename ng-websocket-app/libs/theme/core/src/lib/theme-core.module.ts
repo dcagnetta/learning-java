@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NbDialogModule, NbIconModule, NbLayoutModule, NbSidebarModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
@@ -23,4 +23,13 @@ const MODULES = [
   ],
   exports: [MODULES]
 })
-export class ThemeCoreModule {}
+export class ThemeCoreRootModule {}
+
+@NgModule({})
+export class ThemeCoreModule{
+  static forRoot(): ModuleWithProviders<ThemeCoreRootModule>{
+    return {
+      ngModule: ThemeCoreRootModule
+    }
+  }
+}

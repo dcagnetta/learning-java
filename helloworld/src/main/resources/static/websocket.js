@@ -34,7 +34,7 @@ function connect() {
             showGreeting(JSON.parse(message.body));
         });
 
-        stompClient.subscribe('/topic/group-name', function (message) {
+        stompClient.subscribe('/topic/name', function (message) {
             // to something..
             console.log('Group Message Received: ' + message.body);
             alert(message.body);

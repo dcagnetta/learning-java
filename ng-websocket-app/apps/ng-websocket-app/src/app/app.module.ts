@@ -8,6 +8,7 @@ import { ThemeCoreModule } from '@ng-websocket-app/theme/core';
 import { SessionShellStartModule } from '@ng-websocket-app/session/shell-start';
 import { SharedCoreModule } from '@ng-websocket-app/shared/core';
 import { SharedEnvironmentsModule } from '@ng-websocket-app/shared/environments';
+import { SharedDataAccessModule } from '@ng-websocket-app/shared/data-access';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,9 @@ import { SharedEnvironmentsModule } from '@ng-websocket-app/shared/environments'
 
     SharedEnvironmentsModule,
     SharedCoreModule,
-    ThemeCoreModule,
+    ThemeCoreModule.forRoot(),
+
+    SharedDataAccessModule.forRoot(),
 
     SessionShellStartModule,
 

@@ -41,6 +41,8 @@
     "@angular/router": "^9.1.1",
     "@nebular/eva-icons": "5.0.0",
     "@nebular/theme": "5.0.0",
+    "@ngrx/store": "^9.1.0",
+    "@ngrx/store-devtools": "^9.1.0",
     "@ngx-loading-bar/core": "^4.2.0",
     "@ngx-loading-bar/http-client": "^4.2.0",
     "@ngx-loading-bar/router": "^4.2.0",

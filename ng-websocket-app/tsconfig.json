@@ -34,7 +34,10 @@
         "libs/notifications/domain/src/index.ts"
       ],
       "@ng-websocket-app/shared/core": ["libs/shared/core/src/index.ts"],
-      "@ng-websocket-app/shared/utils": ["libs/shared/utils/src/index.ts"]
+      "@ng-websocket-app/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@ng-websocket-app/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -34,11 +34,11 @@ public class WebSocketSessionListener {
         GenericMessage message = (GenericMessage) event.getMessage();
         String simpDestination = (String) message.getHeaders().get("simpDestination");
 
-        String groupId = "group-name";
+        String groupId = "name";
 
-        if (simpDestination.startsWith("/topic/group/" + groupId)) {
+        if (simpDestination.startsWith("/topic/" + groupId)) {
             // do stuff
-            sender.convertAndSend("/topic/group/" + groupId, "Welcome to group.");
+            sender.convertAndSend("/topic/" + groupId, "Welcome to group.");
         }
     }
 }
