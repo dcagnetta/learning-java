@@ -27,7 +27,7 @@ export class CreateComponent extends FormComponent implements OnInit {
   updateSession(){
     this.created.emit({
       type : 'New',
-      session : this.formControl('name').value
+      name : this.formControl('name').value
     })
   }
 

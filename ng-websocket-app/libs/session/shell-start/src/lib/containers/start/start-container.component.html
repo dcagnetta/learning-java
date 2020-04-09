@@ -1,4 +1,6 @@
 
-<session-create (created)="onSessionStarted($event)"></session-create>
+<session-create *ngIf="(facade.isSessionCreated$ | async) === false"
+                (created)="onSessionStarted($event)">
+</session-create>
 
 <session-join (joined)="onSessionStarted($event)"></session-join>

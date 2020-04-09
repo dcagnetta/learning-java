@@ -9,7 +9,7 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 })
 export class StartContainer implements OnInit, OnDestroy {
 
-  constructor(private facade: StartFacade) { }
+  constructor(public facade: StartFacade) { }
 
   ngOnInit(): void {
     this.facade.start$

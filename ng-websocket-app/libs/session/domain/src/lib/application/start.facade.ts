@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, combineLatest} from 'rxjs';
+import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs';
 
 import { Session } from '../entities/session';
 import { SessionData } from '../infrastructure/interfaces/session.data';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { StartSession } from './commands';
-
+import { select, Store } from '@ngrx/store';
+import * as fromRoot from '@ng-websocket-app/shared/data-access';
 
 @Injectable()
 export class StartFacade {
@@ -17,23 +18,31 @@ export class StartFacade {
   session$ = this.sessionSubject.asObservable();
   sessionList$ = this.sessionListSubject.asObservable();
 
+
+  isSessionCreated$ = this.store.pipe( select( fromRoot.selectSessionIsCreated ) );
+
+
   /**
    * Triggers create Session from api automatically whenever new session is created
    */
   start$: Observable<any> =
     combineLatest( [this.session$] )
       .pipe(
-        switchMap( ( [session] ) => {
+        switchMap( ( [command] ) => {
 
-          switch ( session.type ) {
-            case 'New': return this.api.create({name: session.session})
+          switch ( command.type ) {
+            case 'New':
+              return this.api.create( { name: command.name } )
+                .pipe( tap( _ => {
+                  this.store.dispatch( fromRoot.StartSession( { name: command.name } ) );
+                } ) );
           }
 
         } )
       );
 
 
-  constructor( private api: SessionData ) {
+  constructor( private api: SessionData, private store: Store<fromRoot.State> ) {
   }
 
   load(): void {

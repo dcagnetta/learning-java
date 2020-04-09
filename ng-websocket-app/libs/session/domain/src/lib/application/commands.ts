@@ -1,6 +1,6 @@
 export interface StartSession {
   type: SessionType,
-  session: string,
+  name: string,
   person?: string
 }
 
