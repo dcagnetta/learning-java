@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Session } from '../entities/session';
+import { ENV } from '@ng-websocket-app/shared/environments';
 
 @Injectable({ providedIn: 'root' })
 export class SessionDataService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, @Inject( ENV ) private environment) {
     }
 
     load(): Observable<Session[]> {

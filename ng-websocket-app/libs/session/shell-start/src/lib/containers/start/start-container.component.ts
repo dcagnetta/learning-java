@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StartSession } from '@ng-websocket-app/session/domain';
+import { CreateFacade, StartSession } from '@ng-websocket-app/session/domain';
 
 @Component({
   selector: 'session-start-container',
@@ -8,7 +8,7 @@ import { StartSession } from '@ng-websocket-app/session/domain';
 })
 export class StartContainer implements OnInit {
 
-  constructor() { }
+  constructor(private createFacade: CreateFacade) { }
 
   ngOnInit(): void {
   }
