@@ -2,7 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { StartSession } from './session.actions';
 
 export interface SessionState {
-  id?: any,
+  id?: string,
   name?: string,
   isCreated?: boolean,
   isJoined?: boolean

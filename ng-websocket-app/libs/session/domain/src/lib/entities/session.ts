@@ -1,4 +1,4 @@
 export interface Session {
-  id?: any;
+  id?: string;
   name: string;
 }

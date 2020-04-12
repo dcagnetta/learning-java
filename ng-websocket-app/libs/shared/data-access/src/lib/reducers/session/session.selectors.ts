@@ -22,6 +22,10 @@ export const selectSessionName = createSelector(
   session => session.name
 );
 
+export const selectSessionId = createSelector(
+  selectSession,
+  session => session.id
+);
 
 export const selectSessionIsCreated = createSelector(
   selectSession,
