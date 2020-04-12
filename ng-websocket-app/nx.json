@@ -74,6 +74,9 @@
     },
     "estimation-shell": {
       "tags": ["scope:estimation", "type:shell"]
+    },
+    "session-ui": {
+      "tags": ["scope:session", "type:ui"]
     }
   }
 }

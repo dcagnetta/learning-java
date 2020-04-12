@@ -1,10 +1,4 @@
 
-<nb-card>
-    <nb-card-header>{{sessionName$ | async}}</nb-card-header>
-    <nb-card-body>
-        session url or code will appear here
-    </nb-card-body>
-</nb-card>
-
+<session-info [session]="session$ | async"></session-info>
 
 <router-outlet></router-outlet>

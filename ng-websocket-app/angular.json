@@ -600,6 +600,38 @@
           "style": "scss"
         }
       }
+    },
+    "session-ui": {
+      "projectType": "library",
+      "root": "libs/session/ui",
+      "sourceRoot": "libs/session/ui/src",
+      "prefix": "ng-websocket-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/session/ui/tsconfig.lib.json",
+              "libs/session/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/session/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/session/ui/jest.config.js",
+            "tsConfig": "libs/session/ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/session/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

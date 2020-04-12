@@ -5,6 +5,7 @@ import { EstimationFeatureMakeEstimationModule } from '@ng-websocket-app/estimat
 import { EstimationHomeComponent } from './estimation-home/estimation-home.component';
 import { EstimationRoutingModule } from './estimation-routing.module';
 import { NbCardModule } from '@nebular/theme';
+import { SessionInfoComponent } from '@ng-websocket-app/session/ui';
 
 const NEBULAR = [
   NbCardModule
@@ -20,6 +21,11 @@ const NEBULAR = [
 
     NEBULAR
   ],
-  declarations: [EstimationHomeComponent]
+  declarations: [
+    EstimationHomeComponent,
+
+    // External
+    SessionInfoComponent
+  ]
 })
 export class EstimationShellModule {}
