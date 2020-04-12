@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -13,9 +14,8 @@ import java.util.Set;
 @NoArgsConstructor
 public class Session {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "session_id")
-    private long id;
+    private UUID id;
 
     //@Column(name = "name")
     private String name;
@@ -26,7 +26,8 @@ public class Session {
     @OneToMany(mappedBy="session")   // property name in EstimationItem entity
     private Set<EstimationItem> items;
 
-    public Session(String name) {
+    public Session(UUID id, String name) {
+        this.id = id;
         this.name = name;
     }
 }

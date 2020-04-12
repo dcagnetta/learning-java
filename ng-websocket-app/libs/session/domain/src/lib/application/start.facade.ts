@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 
 import { Session } from '../entities/session';
 import { SessionData } from '../infrastructure/interfaces/session.data';
@@ -32,9 +33,12 @@ export class StartFacade {
 
           switch ( command.type ) {
             case 'New':
-              return this.api.create( { name: command.name } )
+
+              const id = uuidv4(); // Generate unique id
+
+              return this.api.create( { id, name: command.name } )
                 .pipe( tap( _ => {
-                  this.store.dispatch( fromRoot.StartSession( { name: command.name } ) );
+                  this.store.dispatch( fromRoot.StartSession( { id, name: command.name } ) );
                 } ) );
           }
 

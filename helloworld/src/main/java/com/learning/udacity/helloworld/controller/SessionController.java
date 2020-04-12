@@ -45,7 +45,7 @@ public class SessionController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Session> create(@RequestBody CreateSession command){
         // save a single Customer
-        var entity = sessionRepository.save(new Session(command.getName()));
+        var entity = sessionRepository.save(new Session(command.getId(), command.getName()));
         return ok(entity);
     }
 

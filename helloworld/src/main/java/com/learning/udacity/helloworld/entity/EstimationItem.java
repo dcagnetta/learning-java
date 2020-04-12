@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -13,9 +14,9 @@ import java.util.Set;
 @NoArgsConstructor
 public class EstimationItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "estimate_item_id")
-    private long id;
+    private UUID id;
 
     private String name;
     private String description;

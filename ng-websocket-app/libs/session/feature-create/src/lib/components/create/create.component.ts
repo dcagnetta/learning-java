@@ -19,7 +19,7 @@ export class CreateComponent extends FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(8)]]
+      name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]]
     });
   }
 
