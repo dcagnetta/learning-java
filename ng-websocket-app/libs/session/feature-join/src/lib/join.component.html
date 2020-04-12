@@ -1,15 +1,23 @@
 <nb-card accent="primary">
     <nb-card-header>Join Session</nb-card-header>
     <nb-card-body>
-        <form>
+        <form [formGroup]="form">
             <div class="form-group">
-                <input type="text" nbInput fullWidth placeholder="Session code">
+                <input type="text" nbInput fullWidth placeholder="Session code"
+                       [status]="checkStatus('code')"
+                       formControlName="code">
             </div>
             <div class="form-group">
-                <input type="text" nbInput fullWidth placeholder="Your name">
+                <input type="text" nbInput fullWidth placeholder="Your name"
+                       [status]="checkStatus('person')"
+                       formControlName="person">
             </div>
             <br />
-            <button type="submit" nbButton status="success" size="small">Send</button>
+            <button type="submit" nbButton status="success" size="small"
+                    (click)="updateSession()"
+                    [disabled]="!form.valid">
+                Join
+            </button>
         </form>
     </nb-card-body>
 </nb-card>

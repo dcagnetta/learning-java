@@ -19,6 +19,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.ok;
+
+// static imports
+
+
 @RestController
 @RequestMapping("/session")
 public class SessionController {
@@ -37,10 +42,11 @@ public class SessionController {
 
     // http://localhost:8080/session/create
     @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody CreateSession command){
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Session> create(@RequestBody CreateSession command){
         // save a single Customer
-        sessionRepository.save(new Session(command.getName()));
+        var entity = sessionRepository.save(new Session(command.getName()));
+        return ok(entity);
     }
 
     // http://localhost:8080/session/
