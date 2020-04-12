@@ -38,7 +38,7 @@ import { EstimationFeatureMakeEstimationModule } from '@ng-websocket-app/estimat
     NbButtonModule,
     EstimationFeatureCreateEstimationItemModule,
     HttpClientModule,
-    EstimationFeatureMakeEstimationModule
+    EstimationFeatureMakeEstimationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

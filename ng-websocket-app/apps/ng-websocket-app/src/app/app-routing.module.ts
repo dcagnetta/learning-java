@@ -2,10 +2,16 @@ import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
 import { TestComponent } from './test.component';
-import { SessionCreatedGuard } from './session-created.guard';
+import { SessionStartedGuard } from './session-started-guard';
 
 const routes: Routes = [
-  { path: 'test', component: TestComponent, canActivate: [SessionCreatedGuard] },
+  {
+    path: 'pages',
+    canActivate: [SessionStartedGuard],
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
+  },
+  { path: 'test', component: TestComponent, canActivate: [SessionStartedGuard] },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

@@ -32,3 +32,10 @@ export const selectSessionIsJoined = createSelector(
   selectSession,
   session => session.isJoined
 );
+
+/* Checks if the session is started by looking at isStarted or isJoined */
+export const selectSessionIsStarted = createSelector(
+  selectSessionIsCreated,
+  selectSessionIsJoined,
+  (isCreated, isJoined) => isCreated || isJoined
+);

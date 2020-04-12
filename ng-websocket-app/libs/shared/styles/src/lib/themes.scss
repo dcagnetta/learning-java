@@ -1,5 +1,7 @@
-@import '../../../../../node_modules/@nebular/theme/styles/theming';
-@import '../../../../../node_modules/@nebular/theme/styles/themes/dark';
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes/dark';
 
 $nb-themes: nb-register-theme((
 
