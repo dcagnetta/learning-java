@@ -71,6 +71,9 @@
     },
     "estimation-feature-make-estimation": {
       "tags": ["domain:estimation", "type:feature"]
+    },
+    "estimation-shell": {
+      "tags": ["scope:estimation", "type:shell"]
     }
   }
 }

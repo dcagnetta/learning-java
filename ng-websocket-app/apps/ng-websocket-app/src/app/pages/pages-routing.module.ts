@@ -6,7 +6,12 @@ import { PagesComponent } from './pages.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
-  children: []
+  children: [
+    {
+      path: 'estimation',
+      loadChildren: () => import('../features/estimation/estimation.module').then(m => m.EstimationModule),
+    },
+  ]
 }];
 
 @NgModule({

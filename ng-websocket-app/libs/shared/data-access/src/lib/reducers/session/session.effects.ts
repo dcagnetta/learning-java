@@ -13,7 +13,7 @@ export class SessionEffects {
   navigateToSession$ = createEffect(() =>
     this.actions$.pipe(
       ofType(StartSession),
-      tap(action => this.router.navigate(['test']) )
+      tap(action => this.router.navigate(['pages', 'estimation']) )
     ), { dispatch: false });
 
   constructor(

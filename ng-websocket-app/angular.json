@@ -568,6 +568,38 @@
           "style": "scss"
         }
       }
+    },
+    "estimation-shell": {
+      "projectType": "library",
+      "root": "libs/estimation/shell",
+      "sourceRoot": "libs/estimation/shell/src",
+      "prefix": "ng-websocket-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/estimation/shell/tsconfig.lib.json",
+              "libs/estimation/shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/estimation/shell/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/estimation/shell/jest.config.js",
+            "tsConfig": "libs/estimation/shell/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/estimation/shell/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -46,6 +46,9 @@
       ],
       "@ng-websocket-app/estimation/feature-make-estimation": [
         "libs/estimation/feature-make-estimation/src/index.ts"
+      ],
+      "@ng-websocket-app/estimation/shell": [
+        "libs/estimation/shell/src/index.ts"
       ]
     }
   },
