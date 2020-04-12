@@ -1,7 +1,10 @@
-<div class="tabs">
-    <a routerLink="/pages/estimation/items/1/edit" routerLinkActive="active">Item 1</a>
-    <a routerLink="/pages/estimation/items/2/edit" routerLinkActive="active">Item 2</a>
-    <a routerLink="/pages/estimation/items/3/edit" routerLinkActive="active">Item 3</a>
-</div>
+
+<nb-card>
+    <nb-card-header>{{sessionName$ | async}}</nb-card-header>
+    <nb-card-body>
+        session url or code will appear here
+    </nb-card-body>
+</nb-card>
+
 
 <router-outlet></router-outlet>

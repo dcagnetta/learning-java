@@ -4,6 +4,11 @@ import { EstimationFeatureCreateEstimationItemModule } from '@ng-websocket-app/e
 import { EstimationFeatureMakeEstimationModule } from '@ng-websocket-app/estimation/feature-make-estimation';
 import { EstimationHomeComponent } from './estimation-home/estimation-home.component';
 import { EstimationRoutingModule } from './estimation-routing.module';
+import { NbCardModule } from '@nebular/theme';
+
+const NEBULAR = [
+  NbCardModule
+];
 
 @NgModule({
   imports: [
@@ -11,7 +16,9 @@ import { EstimationRoutingModule } from './estimation-routing.module';
     EstimationRoutingModule,
 
     EstimationFeatureCreateEstimationItemModule,
-    EstimationFeatureMakeEstimationModule
+    EstimationFeatureMakeEstimationModule,
+
+    NEBULAR
   ],
   declarations: [EstimationHomeComponent]
 })

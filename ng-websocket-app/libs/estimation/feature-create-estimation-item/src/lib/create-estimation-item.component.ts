@@ -6,23 +6,9 @@ import { CreateEstimationItemFacade } from '@ng-websocket-app/estimation/domain'
   templateUrl: './create-estimation-item.component.html',
   styleUrls: ['./create-estimation-item.component.scss']
 })
-export class CreateEstimationItemComponent implements OnInit {
+export class CreateEstimationItemComponent {
     
-    
-    estimationItemList$ = this.createEstimationItemFacade.estimationItemList$;
 
-
-    constructor(private createEstimationItemFacade: CreateEstimationItemFacade) {
-    }
-
-    
-    ngOnInit() {
-        this.load();
-    }
-
-    load(): void {
-        this.createEstimationItemFacade.load();
-    }
 
 }
 

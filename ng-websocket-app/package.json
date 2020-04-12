@@ -48,6 +48,7 @@
     "@ngx-loading-bar/http-client": "^4.2.0",
     "@ngx-loading-bar/router": "^4.2.0",
     "@nrwl/angular": "9.2.2",
+    "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "eva-icons": "^1.1.2",
     "ngrx-store-localstorage": "^9.0.0",

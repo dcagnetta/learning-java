@@ -5,16 +5,33 @@ import { CreateEstimationItemComponent } from './create-estimation-item.componen
 import { ListItemsComponent } from './list-items/list-items.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { RouterModule } from '@angular/router';
+import { NbActionsModule, NbButtonModule, NbCardModule, NbIconModule, NbInputModule } from '@nebular/theme';
+
+const NEBULAR = [
+  NbActionsModule,
+  NbButtonModule,
+  NbCardModule,
+  NbIconModule,
+  NbInputModule
+];
+
 
 const COMPONENTS = [
   CreateEstimationItemComponent,
   ListItemsComponent,
-  EditItemComponent
+  EditItemComponent,
 ];
 
 @NgModule({
-  imports: [CommonModule, EstimationDomainModule, RouterModule],
-  declarations: [COMPONENTS],
+  imports: [
+    CommonModule,
+    RouterModule,
+
+    EstimationDomainModule,
+
+    NEBULAR
+  ],
+  declarations: [...COMPONENTS],
   exports: [COMPONENTS]
 })
 export class EstimationFeatureCreateEstimationItemModule {}

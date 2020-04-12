@@ -1,11 +1,38 @@
 <h1>estimation-create-estimation-item</h1>
 
-<a class="button cancel" routerLink="../../">Cancel</a>
 
-<table class="table">
-    <tr *ngFor="let estimationItem of estimationItemList$ | async">
-        <td>{{estimationItem.id}}</td>
-        <td>{{estimationItem.name}}</td>
-        <td>{{estimationItem.description}}</td>
-    </tr>
-</table>
+<nb-card>
+    <nb-card-header>Block form</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputFirstName" class="label">First Name</label>
+                    <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputLastName" class="label">Last Name</label>
+                    <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputEmail" class="label">Email</label>
+                    <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputWebsite" class="label">Website</label>
+                    <input type="url" nbInput fullWidth id="inputWebsite" placeholder="Website">
+                </div>
+            </div>
+        </div>
+        <button nbButton status="info" routerLink="../../" outline>Cancel</button>
+        <button type="submit" nbButton>Submit</button>
+    </nb-card-body>
+</nb-card>

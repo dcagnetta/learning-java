@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateEstimationItemFacade } from '@ng-websocket-app/estimation/domain';
 
 @Component({
   selector: 'estimation-list-items',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListItemsComponent implements OnInit {
 
-  constructor() { }
+  estimationItemList$ = this.createEstimationItemFacade.estimationItemList$;
 
-  ngOnInit(): void {
+  constructor(private createEstimationItemFacade: CreateEstimationItemFacade) {
+  }
+
+
+  ngOnInit() {
+    this.load();
+  }
+
+  load(): void {
+    this.createEstimationItemFacade.load();
   }
 
 }

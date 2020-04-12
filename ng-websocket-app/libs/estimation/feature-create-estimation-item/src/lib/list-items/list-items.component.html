@@ -1,3 +1,26 @@
-<p>list-items works!</p>
+<nb-card size="large">
+    <nb-card-header>Estimation Items</nb-card-header>
+    <nb-card-body>
 
-<p><a class="text-link" routerLink="create">Create New Item</a></p>
+        <button nbButton status="primary" routerLink="create" outline>New Item</button>
+
+
+        <table class="table">
+            <tr *ngFor="let estimationItem of estimationItemList$ | async">
+                <td>{{estimationItem.id}}</td>
+                <td>{{estimationItem.name}}</td>
+                <td>{{estimationItem.description}}</td>
+                <td>
+                    <button nbButton status="primary" ghost  routerLink="{{estimationItem.id}}/edit">
+                        EDIT
+                    </button>
+                </td>
+                <td>
+                    <button nbButton status="danger" ghost>
+                        DELETE
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </nb-card-body>
+</nb-card>
