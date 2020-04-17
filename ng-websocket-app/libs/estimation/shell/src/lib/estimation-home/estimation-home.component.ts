@@ -21,7 +21,7 @@ export class EstimationHomeComponent implements OnInit {
     this.session$ = this.store.select(selectSession)
       .pipe(
         map( state => {
-          return {id: state.id, name: state.name};
+          return {id: state.id, name: state.name, shortId: state.shortId};
         } )
       );
   }

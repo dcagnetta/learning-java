@@ -4,6 +4,7 @@ import { StartSession } from './session.actions';
 export interface SessionState {
   id?: string,
   name?: string,
+  shortId?: string,
   isCreated?: boolean,
   isJoined?: boolean
 }
@@ -11,6 +12,7 @@ export interface SessionState {
 export const initialState: SessionState = {
   id: null,
   name: null,
+  shortId: null,
   isCreated: false,
   isJoined: false
 };
@@ -19,7 +21,7 @@ export const initialState: SessionState = {
 export const reducer = createReducer(
   initialState,
 
-  on( StartSession, ( state, {id, name} ) => ({...state, id, name, isCreated: true }) ),
+  on( StartSession, ( state, {id, name, shortId} ) => ({...state, id, name, shortId,isCreated: true }) ),
 
 );
 
