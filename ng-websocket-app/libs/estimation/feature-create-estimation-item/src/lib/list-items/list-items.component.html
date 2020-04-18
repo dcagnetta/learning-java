@@ -6,7 +6,7 @@
 
 
         <table class="table">
-            <tr *ngFor="let estimationItem of estimationItemList$ | async">
+            <tr *ngFor="let estimationItem of estimationItems$ | async">
                 <td>{{estimationItem.id}}</td>
                 <td>{{estimationItem.name}}</td>
                 <td>{{estimationItem.description}}</td>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Session } from '@ng-websocket-app/session/domain';
 
 @Component({
@@ -10,5 +10,9 @@ export class SessionInfoComponent {
 
   @Input()
   session: Session;
+
+  @Output()
+  resetClicked = new EventEmitter();
+
 
 }

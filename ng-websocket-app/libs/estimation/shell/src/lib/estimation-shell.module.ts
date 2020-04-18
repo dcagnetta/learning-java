@@ -4,11 +4,12 @@ import { EstimationFeatureCreateEstimationItemModule } from '@ng-websocket-app/e
 import { EstimationFeatureMakeEstimationModule } from '@ng-websocket-app/estimation/feature-make-estimation';
 import { EstimationHomeComponent } from './estimation-home/estimation-home.component';
 import { EstimationRoutingModule } from './estimation-routing.module';
-import { NbCardModule } from '@nebular/theme';
-import { SessionInfoComponent } from '@ng-websocket-app/session/ui';
+import { NbButtonModule, NbCardModule } from '@nebular/theme';
+import { SessionInfoComponent, SessionResetComponent } from '@ng-websocket-app/session/ui';
 
 const NEBULAR = [
-  NbCardModule
+  NbCardModule,
+  NbButtonModule
 ];
 
 @NgModule({
@@ -25,7 +26,8 @@ const NEBULAR = [
     EstimationHomeComponent,
 
     // External
-    SessionInfoComponent
+    SessionInfoComponent,
+    SessionResetComponent
   ]
 })
 export class EstimationShellModule {}

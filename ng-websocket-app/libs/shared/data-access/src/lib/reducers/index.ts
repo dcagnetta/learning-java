@@ -3,14 +3,17 @@ import { environment } from '@ng-websocket-app/shared/environments';
 import { debug } from './debug';
 import { sessionReducer, SessionState } from './session/session.reducer';
 import { localStorageSync } from 'ngrx-store-localstorage';
+import { estimationReducer, EstimationState } from './estimation/estimation.reducer';
 
 export interface State {
-  session: SessionState
+  session: SessionState,
+  estimation: EstimationState
 }
 
 
 export const reducers: ActionReducerMap<State> = {
-  session: sessionReducer
+  session: sessionReducer,
+  estimation: estimationReducer
 };
 
 
@@ -29,3 +32,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 export const selectSessionState = createFeatureSelector<State, SessionState>(
   'session'
 );
+export const selectEstimationState = createFeatureSelector<State, EstimationState>(
+  'estimation'
+);
+

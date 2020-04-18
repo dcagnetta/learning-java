@@ -1,5 +1,6 @@
 export interface EstimationItem {
-    id: number;
+    id?: string;
+    sessionId?: string;
     name: string;
-    description: string;
+    description?: string;
 }

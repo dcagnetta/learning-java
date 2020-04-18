@@ -1,6 +1,9 @@
 <nb-card>
-    <nb-card-header>{{session?.name}}</nb-card-header>
+    <nb-card-header>{{session?.name}} Session</nb-card-header>
     <nb-card-body>
         Please share this code: <strong>{{session?.shortId}}</strong>, to allow others to join.
+        <p>
+            <session-reset (resetClicked)="resetClicked.emit()"></session-reset>
+        </p>
     </nb-card-body>
 </nb-card>

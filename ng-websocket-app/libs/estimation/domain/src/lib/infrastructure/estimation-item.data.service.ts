@@ -10,15 +10,6 @@ export class EstimationItemDataService {
     }
 
     load(): Observable<EstimationItem[]> {
-
-        // Uncomment if needed
-        /*
-        const url = '...';
-        const params = new HttpParams().set('param', 'value');
-        const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http.get<EstimationItem[]>(url, {params, headers});
-        */
-        
         return of([
             {id: 1, name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet'},
             {id: 2, name: 'At vero eos', description: 'At vero eos et accusam et justo duo dolores'},

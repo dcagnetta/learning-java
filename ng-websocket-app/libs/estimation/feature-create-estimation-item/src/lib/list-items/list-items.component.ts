@@ -1,25 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { CreateEstimationItemFacade } from '@ng-websocket-app/estimation/domain';
+import { Component } from '@angular/core';
+import { EstimationItemFacade } from '@ng-websocket-app/estimation/domain';
 
 @Component({
   selector: 'estimation-list-items',
   templateUrl: './list-items.component.html',
   styleUrls: ['./list-items.component.scss']
 })
-export class ListItemsComponent implements OnInit {
+export class ListItemsComponent {
 
-  estimationItemList$ = this.createEstimationItemFacade.estimationItemList$;
+  public estimationItems$ = this.facade.estimationItems$;
 
-  constructor(private createEstimationItemFacade: CreateEstimationItemFacade) {
+  constructor(private facade: EstimationItemFacade) {
   }
 
-
-  ngOnInit() {
-    this.load();
-  }
-
-  load(): void {
-    this.createEstimationItemFacade.load();
-  }
 
 }

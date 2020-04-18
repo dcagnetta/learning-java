@@ -1,4 +1,7 @@
 
-<session-info [session]="session$ | async"></session-info>
+<session-info
+        [session]="session$ | async"
+        (resetClicked)="handleResetClicked()">
+</session-info>
 
 <router-outlet></router-outlet>

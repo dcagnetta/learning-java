@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { StartSession } from './session.actions';
-import { tap, withLatestFrom } from 'rxjs/operators';
+import { StartSession, StopSession } from './session.actions';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class SessionEffects {
@@ -16,9 +16,16 @@ export class SessionEffects {
       tap(action => this.router.navigate(['pages','estimation', action.id]) )
     ), { dispatch: false });
 
+  navigateToResetSession$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(StopSession),
+      tap(action =>  this.router.navigate(['../../'], { relativeTo: this.route }) )
+    ), { dispatch: false });
+
   constructor(
     private actions$: Actions,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
 }

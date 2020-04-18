@@ -1,0 +1,31 @@
+<nb-card>
+    <nb-card-header>New Estimation Item</nb-card-header>
+    <nb-card-body>
+
+        <form [formGroup]="form">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="text" nbInput fullWidth id="inputName" placeholder="Name"
+                               [status]="checkStatus('name')"
+                               formControlName="name">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputDescription" class="label">Description</label>
+                        <input type="text" nbInput fullWidth id="inputDescription" placeholder="Description"
+                               [status]="checkStatus('description')"
+                               formControlName="description">
+                    </div>
+                </div>
+            </div>
+
+            <button nbButton status="info" routerLink="../../" outline>Cancel</button>
+            <button type="button" status="basic" nbButton (click)="onSubmit()" [disabled]="!form.valid">Save</button>
+        </form>
+
+    </nb-card-body>
+</nb-card>

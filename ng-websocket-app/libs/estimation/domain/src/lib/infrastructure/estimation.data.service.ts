@@ -1,28 +1,29 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {Estimation} from '../entities/estimation';
+import { Inject, Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { HttpBaseService } from '@ng-websocket-app/shared/core';
+import { EstimationData } from './interfaces/estimation-data';
+import { ENV } from '@ng-websocket-app/shared/environments';
+import { EstimationItem } from '../..';
 
-@Injectable({ providedIn: 'root' })
-export class EstimationDataService {
+@Injectable()
+export class EstimationDataService extends HttpBaseService implements EstimationData {
 
-    constructor(private http: HttpClient) {
-    }
+  private _baseUrl = this.environment.baseUrls.apiUrl + '/estimation';
 
-    load(): Observable<Estimation[]> {
+  constructor( private http: HttpClient, @Inject( ENV ) private environment ) {
+    super( http );
+  }
 
-        // Uncomment if needed
-        /*
-        const url = '...';
-        const params = new HttpParams().set('param', 'value');
-        const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http.get<Estimation[]>(url, {params, headers});
-        */
-        
-        return of([
-            {id: 1, name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet'},
-            {id: 2, name: 'At vero eos', description: 'At vero eos et accusam et justo duo dolores'},
-            {id: 3, name: 'Duis autem', description: 'Duis autem vel eum iriure dolor in hendrerit'},
-        ]);
-      }
+  load(): Observable<EstimationItem[]> {
+    return of( [
+      { id: '1', name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet' },
+      { id: '2', name: 'At vero eos', description: 'At vero eos et accusam et justo duo dolores' },
+      { id: '3', name: 'Duis autem', description: 'Duis autem vel eum iriure dolor in hendrerit' }
+    ] );
+  }
+
+  create( item: EstimationItem ): Observable<any> {
+    // console.log('create item', item);
+    return super.post<any>( this._baseUrl + '/create-item', item );  }
 }

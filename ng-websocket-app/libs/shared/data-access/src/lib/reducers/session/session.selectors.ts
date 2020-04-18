@@ -2,9 +2,6 @@ import { SessionState } from './session.reducer';
 import { selectSessionState } from '../index';
 import { createSelector } from '@ngrx/store';
 
-class SettingsState {
-}
-
 /*
 * Selects the state slice
 * */
