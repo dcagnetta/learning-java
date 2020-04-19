@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as Stomp from 'stompjs';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component( {
   selector: 'test',
@@ -8,10 +9,14 @@ import { BehaviorSubject } from 'rxjs';
       <div id="messages">
           <button class="btn btn-primary">Send Test Message</button>
           <h2>Received messages</h2>
-          <ol>
-              <!-- we will use Angular binding to populate list of messages -->
-              <li class="message">message</li>
-          </ol>
+          
+          <div  *ngIf="messageReceived | async as message">
+              <ol>
+                  <!-- we will use Angular binding to populate list of messages -->
+                  <li>{{message}}</li>
+              </ol>
+          </div>
+         
       </div>
 
   `,
@@ -22,7 +27,8 @@ export class TestComponent implements OnInit, OnDestroy {
 
   // https://stomp-js.github.io/stomp-websocket/codo/extra/docs-src/Usage.md.html#toc_7
 
-  public connected$ = new BehaviorSubject<boolean>( false );
+  public connectionEstablished = new BehaviorSubject<boolean>( false );
+  public messageReceived = new Subject<any>();
 
   private stompClient: any;
 
@@ -34,10 +40,10 @@ export class TestComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.connect();
+    this.createConnection();
   }
 
-  connect() {
+  createConnection() {
     //connect to stomp where stomp endpoint is exposed
     //let ws = new SockJS(http://localhost:8080/greeting);
     const ws = new WebSocket( 'ws://localhost:8080/websocket-demo' );
@@ -52,21 +58,32 @@ export class TestComponent implements OnInit, OnDestroy {
       that.setConnected( true );
       console.log( 'Connected: ' + frame );
 
-
-      // subscriptions
-      that.stompClient.subscribe( '/user/queue/user-reply', function( message ) {
-        console.log( 'Message Received: ' + message.body );
-      } );
-
-      that.stompClient.subscribe( '/topic/notification', function( message ) {
-        console.log( 'Message Received: ' + message.body );
-      } );
+      // Subscriptions
+      that.registerOnServerEvents(that);
 
     }, this.errorCallBack );
   }
 
+  private registerOnServerEvents(that): void {
+    // server events
+    that.stompClient.subscribe( '/user/queue/user-reply', function( message ) {
+      console.log( 'Message Received: ' + message.body );
+      that.messageReceived.next( message.body );
+    } );
 
-  disconnect() {
+    that.stompClient.subscribe( '/user/queue/user-reply', function( message ) {
+      console.log( 'Message Received: ' + message.body );
+      that.messageReceived.next( message.body );
+    } );
+
+    that.stompClient.subscribe( '/topic/notification', function( message ) {
+      console.log( 'Message Received: ' + message.body );
+      that.messageReceived.next( message.body );
+    } );
+
+  }
+
+  private disconnect() {
     if ( this.stompClient !== null ) {
       this.stompClient.disconnect();
     }
@@ -74,12 +91,12 @@ export class TestComponent implements OnInit, OnDestroy {
     console.log( 'Disconnected' );
   }
 
-  // on error, schedule a reconnection attempt
-  errorCallBack( error ) {
+  // on error
+  private errorCallBack( error ) {
     console.error( 'errorCallBack -> ' + error );
   }
 
   private setConnected( connected: boolean ) {
-    this.connected$.next( false );
+    this.connectionEstablished.next( false );
   }
 }
