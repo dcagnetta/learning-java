@@ -40,10 +40,10 @@ export class TestComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.createConnection();
+    this.connect();
   }
 
-  createConnection() {
+  connect() {
     //connect to stomp where stomp endpoint is exposed
     //let ws = new SockJS(http://localhost:8080/greeting);
     const ws = new WebSocket( 'ws://localhost:8080/websocket-demo' );
@@ -54,7 +54,8 @@ export class TestComponent implements OnInit, OnDestroy {
 
     const that = this;
 
-    this.stompClient.connect( { user: 'dillan' }, function( frame ) {
+    const headers = { user: 'dillan' };
+    this.stompClient.connect( headers, function( frame ) {
       that.setConnected( true );
       console.log( 'Connected: ' + frame );
 
@@ -83,7 +84,7 @@ export class TestComponent implements OnInit, OnDestroy {
 
   }
 
-  private disconnect() {
+  public disconnect() {
     if ( this.stompClient !== null ) {
       this.stompClient.disconnect();
     }
