@@ -3,4 +3,6 @@
                 (created)="onSessionStarted($event)">
 </session-create>
 
-<session-join (joined)="onSessionStarted($event)"></session-join>
+<session-join *ngIf="(facade.isSessionJoined$ | async) === false"
+        (joined)="onSessionStarted($event)">
+</session-join>

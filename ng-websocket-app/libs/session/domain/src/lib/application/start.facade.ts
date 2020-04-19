@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, combineLatest, throwError } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { generate as shortid }  from 'shortid';
 
@@ -22,6 +22,7 @@ export class StartFacade {
 
 
   isSessionCreated$ = this.store.pipe( select( fromRoot.selectSessionIsCreated ) );
+  isSessionJoined$ = this.store.pipe( select( fromRoot.selectSessionIsJoined ) );
 
 
   /**
@@ -40,6 +41,12 @@ export class StartFacade {
                 .pipe( tap( _ => {
                   this.store.dispatch( fromRoot.StartSession( { id, name: command.name, shortId } ) );
                 } ) );
+
+            case 'Join': {
+
+            }
+
+            throwError('StartSession command type unknown.');
           }
 
         } )

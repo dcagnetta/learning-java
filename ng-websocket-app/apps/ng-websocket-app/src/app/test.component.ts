@@ -1,25 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
 
-@Component({
+@Component( {
   selector: 'test',
   template: `
-      <div class="row">
-          <div class="col-md-12">
-              <nb-card class="inline-form-card">
-                  <nb-card-header>Inline form</nb-card-header>
-                  <nb-card-body>
-                      <form class="form-inline">
-                          <input type="text" nbInput fullWidth placeholder="Jane Doe">
-                          <input type="email" nbInput fullWidth placeholder="Email">
-                          <button type="submit" nbButton status="primary">Submit</button>
-                      </form>
-                  </nb-card-body>
-              </nb-card>
-          </div>
+      <div id="messages">
+          <button class="btn btn-primary">Send Test Message</button>
+          <h2>Received messages</h2>
+          <ol>
+              <!-- we will use Angular binding to populate list of messages -->
+              <li class="message">message</li>
+          </ol>
       </div>
+
   `,
   styleUrls: ['test.component.scss']
-})
+} )
 export class TestComponent {
+
+
+  // https://www.toptal.com/java/stomp-spring-boot-websocket
+
+  constructor() {
+    const ws = new SockJS( 'http://localhost:8080/websocket-demo' );
+    const stompClient = Stomp.over( ws );
+
+    stompClient.connect( { user: 'dillan' }, function( frame ) {
+      console.log( 'Connected: ' + frame );
+    } );
+  }
 
 }

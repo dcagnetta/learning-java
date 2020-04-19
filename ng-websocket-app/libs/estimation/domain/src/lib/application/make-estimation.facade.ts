@@ -15,14 +15,7 @@ export class MakeEstimationFacade {
     }
 
     load(): void {
-        this.estimationDataService.load().subscribe(
-            estimationList => {
-                this.estimationListSubject.next(estimationList)
-            },
-            err => {
-                console.error('err', err);
-            }
-        );
+
     }
 
 }

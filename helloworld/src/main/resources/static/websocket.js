@@ -13,7 +13,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    let socket = new SockJS('/websocket-demo');
+    let socket = new SockJS('http://localhost:8080/websocket-demo');
     stompClient = Stomp.over(socket);
 
 
@@ -24,10 +24,10 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
 
-        stompClient.subscribe('/user/queue/user-reply', function(message) {
-            console.log('Message Received: ' + message.body);
-            showDirectMessages(message.body);
-        });
+            stompClient.subscribe('/user/queue/user-reply', function(message) {
+                console.log('Message Received: ' + message.body);
+                showDirectMessages(message.body);
+            });
 
         stompClient.subscribe('/topic/notification', function (message) {
             console.log('Message Received: ' + message.body);

@@ -6,6 +6,11 @@ export const StartSession = createAction(
   props<{ id: string, name: string, shortId: string }>()
 );
 
+export const JoinSession = createAction(
+  '[Session] JoinSession',
+  props<{ shortId: string, person: string }>()
+);
+
 
 export const StopSession = createAction(
   '[Session] StopSession',

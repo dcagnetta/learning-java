@@ -51,6 +51,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "eva-icons": "^1.1.2",
+    "net": "^1.0.2",
     "ngrx-store-localstorage": "^9.0.0",
     "ngx-take-until-destroy": "^5.4.0",
     "rxjs": "~6.5.4",

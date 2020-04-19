@@ -10,7 +10,7 @@ const routes: Routes = [
     canActivate: [SessionStartedGuard],
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
   },
-  { path: 'test', component: TestComponent, canActivate: [SessionStartedGuard] },
+  { path: 'test', component: TestComponent/*, canActivate: [SessionStartedGuard]*/ },
   { path: '**', redirectTo: '' },
 ];
 
