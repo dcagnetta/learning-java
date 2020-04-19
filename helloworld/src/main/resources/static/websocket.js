@@ -13,7 +13,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    let socket = new SockJS('http://localhost:8080/websocket-demo');
+    let socket = new WebSocket('ws://localhost:8080/websocket-demo');
     stompClient = Stomp.over(socket);
 
 

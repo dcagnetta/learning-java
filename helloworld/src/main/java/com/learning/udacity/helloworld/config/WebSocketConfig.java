@@ -50,8 +50,8 @@ public class WebSocketConfig implements  WebSocketMessageBrokerConfigurer {
         // can be used if WebSocket is not available.
         registry
                 .addEndpoint("/websocket-demo")
-                .setAllowedOrigins("http://localhost:4200")
-                .withSockJS();
+                .setAllowedOrigins("http://localhost:4200");
+                //
     }
 
     @Override
