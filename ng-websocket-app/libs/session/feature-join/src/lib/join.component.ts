@@ -19,8 +19,8 @@ export class JoinComponent extends FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      code: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
-      person: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
+      code: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      username: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
     });
   }
 
@@ -28,7 +28,7 @@ export class JoinComponent extends FormComponent implements OnInit {
     this.joined.emit({
       type : 'Join',
       name : this.formControl('code').value,
-      person : this.formControl('person').value
+      username : this.formControl('username').value
     })
   }
 

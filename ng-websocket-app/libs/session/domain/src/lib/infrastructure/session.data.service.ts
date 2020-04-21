@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpResponseBase } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Session } from '../entities/session';
 import { ENV } from '@ng-websocket-app/shared/environments';
-import { HttpBaseService } from '@ng-websocket-app/shared/core';
+import { ApiResponse, HttpBaseService } from '@ng-websocket-app/shared/core';
 import { SessionData } from './interfaces/session.data';
+import { JoinSession } from '../..';
 
 @Injectable()
 export class SessionDataService extends HttpBaseService implements SessionData {
@@ -22,5 +23,10 @@ export class SessionDataService extends HttpBaseService implements SessionData {
 
   load(): Observable<Session[]> {
     return this.get<Session[]>(this._baseUrl);
+  }
+
+  join( command: JoinSession ): Observable<ApiResponse> {
+    console.log('join', command);
+    return super.post<ApiResponse>( this._baseUrl + '/join', command );
   }
 }

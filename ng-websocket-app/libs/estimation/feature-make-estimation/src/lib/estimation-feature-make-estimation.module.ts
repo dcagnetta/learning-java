@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EstimationDomainModule } from '@ng-websocket-app/estimation/domain';
-import { MakeEstimationComponent } from './make-estimation.component';
+import { MakeEstimationComponent } from './make-estimation/make-estimation.component';
 
 @NgModule({
   imports: [CommonModule, EstimationDomainModule],

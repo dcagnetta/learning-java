@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { StartSession, StopSession } from './session.actions';
+import { JoinSession, StartSession, StopSession } from './session.actions';
 
 export interface SessionState {
   id?: string,
@@ -22,6 +22,9 @@ export const reducer = createReducer(
   initialState,
 
   on( StartSession, ( state, {id, name, shortId} ) => ({...state, id, name, shortId,isCreated: true }) ),
+
+  on( JoinSession, ( state, { shortId} ) => ({...state, shortId, isJoined: true }) ),
+
   on( StopSession, ( state, {id} ) => ({...state, ...initialState }) ),
 
 );

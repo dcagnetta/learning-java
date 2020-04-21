@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EstimationShellModule } from '@ng-websocket-app/estimation/shell';
+import { EstimationShellMakeEstimationsModule } from '@ng-websocket-app/estimation/shell-make-estimations';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import { EstimationShellModule } from '@ng-websocket-app/estimation/shell';
     CommonModule,
 
     // Shells
-    EstimationShellModule
+    EstimationShellModule,
+    EstimationShellMakeEstimationsModule
   ]
 })
 export class EstimationModule { }

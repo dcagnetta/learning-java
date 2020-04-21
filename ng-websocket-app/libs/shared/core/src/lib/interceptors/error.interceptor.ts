@@ -25,7 +25,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // 401 handled in auth.interceptor
                 if (error && error.status !== 401) {
                     console.log('Error Interceptor');
-                    this.messenger.danger( error.message, 'Something has gone wrong.', this.toastConfig );
+                    this.messenger.danger( error.error, error.message, this.toastConfig );
                 }
 
                 this.loader.stop();

@@ -1,3 +1,3 @@
 export * from './lib/estimation-feature-make-estimation.module';
 
-export * from './lib/make-estimation.component';
+export * from './lib/make-estimation/make-estimation.component';

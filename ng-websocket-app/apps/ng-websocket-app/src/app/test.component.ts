@@ -98,6 +98,6 @@ export class TestComponent implements OnInit, OnDestroy {
   }
 
   private setConnected( connected: boolean ) {
-    this.connectionEstablished.next( false );
+    this.connectionEstablished.next( connected );
   }
 }

@@ -50,7 +50,10 @@
       "@ng-websocket-app/estimation/shell": [
         "libs/estimation/shell/src/index.ts"
       ],
-      "@ng-websocket-app/session/ui": ["libs/session/ui/src/index.ts"]
+      "@ng-websocket-app/session/ui": ["libs/session/ui/src/index.ts"],
+      "@ng-websocket-app/estimation/shell-make-estimations": [
+        "libs/estimation/shell-make-estimations/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

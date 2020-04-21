@@ -14,6 +14,8 @@ import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
 import { EstimationFeatureCreateEstimationItemModule } from '@ng-websocket-app/estimation/feature-create-estimation-item';
 import { HttpClientModule } from '@angular/common/http';
 import { EstimationFeatureMakeEstimationModule } from '@ng-websocket-app/estimation/feature-make-estimation';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [AppComponent, TestComponent],
@@ -31,14 +33,18 @@ import { EstimationFeatureMakeEstimationModule } from '@ng-websocket-app/estimat
 
     AppRoutingModule,
 
+    // Move to core
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
+
 
     // Delete test component
     NbCardModule,
     NbInputModule,
     NbButtonModule,
-    EstimationFeatureCreateEstimationItemModule,
-    HttpClientModule,
-    EstimationFeatureMakeEstimationModule,
+    //EstimationFeatureCreateEstimationItemModule,
+    //HttpClientModule,
+    //EstimationFeatureMakeEstimationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrls: {
-    websocketUrl: 'http://localhost:8080',
+    websocketUrl: 'ws://localhost:8080/websocket-demo',
     apiUrl: 'http://localhost:8080'
   }
 };

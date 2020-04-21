@@ -41,7 +41,7 @@ export class CreateEstimationItemComponent extends FormComponent  implements OnI
 
   onSubmit() {
     this.facade.create(this.form.value);
-    return this.router.navigate(['../../'], { relativeTo: this.route });
+    return this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   // This method must be present, even if empty.

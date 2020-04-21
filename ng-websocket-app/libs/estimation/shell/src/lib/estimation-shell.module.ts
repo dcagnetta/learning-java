@@ -17,15 +17,16 @@ const NEBULAR = [
     CommonModule,
     EstimationRoutingModule,
 
+    // Features
     EstimationFeatureCreateEstimationItemModule,
-    EstimationFeatureMakeEstimationModule,
+    // EstimationFeatureMakeEstimationModule,
 
     NEBULAR
   ],
   declarations: [
     EstimationHomeComponent,
 
-    // External
+    // External Dependencies
     SessionInfoComponent,
     SessionResetComponent
   ]

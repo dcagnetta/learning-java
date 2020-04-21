@@ -8,7 +8,7 @@ export const StartSession = createAction(
 
 export const JoinSession = createAction(
   '[Session] JoinSession',
-  props<{ shortId: string, person: string }>()
+  props<{ shortId: string, username: string }>()
 );
 
 

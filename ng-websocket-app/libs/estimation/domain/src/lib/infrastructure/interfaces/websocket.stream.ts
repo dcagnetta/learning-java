@@ -1,4 +1,4 @@
 export abstract class WebsocketStream {
-  abstract connect(): void;
+  abstract connect( username: string ): void;
   abstract disconnect(): void;
 }
