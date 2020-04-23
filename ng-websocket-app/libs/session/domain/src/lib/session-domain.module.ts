@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SessionData } from './infrastructure/interfaces/session.data';
 import { SessionDataService } from './infrastructure/session.data.service';
 import { StartFacade } from './application/start.facade';
+import { WebsocketStream } from './infrastructure/interfaces/websocket.stream';
+import { WebsocketStreamService } from './infrastructure/websocket.stream.service';
 
 const MODULES = [
   FormsModule,
@@ -18,6 +20,7 @@ const MODULES = [
   ],
   providers: [
     {provide: SessionData, useClass: SessionDataService},
+    {provide: WebsocketStream, useClass: WebsocketStreamService},
     StartFacade
   ],
   exports: [

@@ -10,6 +10,7 @@ import { StartSession } from './commands';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from '@ng-websocket-app/shared/data-access';
 import { ToastrService } from '../../../../../shared/core/src/lib/services/toastr.service';
+import { WebsocketStream } from '../infrastructure/interfaces/websocket.stream';
 
 @Injectable()
 export class StartFacade {
@@ -57,6 +58,7 @@ export class StartFacade {
                       this.messenger.info( 'Invalid Session Code.', response.error, toastConfig );
                     } else {
                       this.store.dispatch( fromRoot.JoinSession( { shortId: command.name, username: command.username } ) );
+                      this.socket.connect(command.username + command.name);
                     }
 
                   } ) );
@@ -73,6 +75,7 @@ export class StartFacade {
   constructor(
     private api: SessionData,
     private store: Store<fromRoot.State>,
+    private socket: WebsocketStream,
     private messenger: ToastrService ) {
   }
 

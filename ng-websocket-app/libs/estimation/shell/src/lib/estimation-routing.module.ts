@@ -9,7 +9,7 @@ import {
 import { ITEM_ID_PARAM, SESSION_ID_PARAM } from '@ng-websocket-app/estimation/domain';
 
 const routes: Routes = [
-  { path: 'new', component: EstimationHomeComponent, pathMatch: 'full' }, // pages/estimations
+  { path: 'new', component: EstimationHomeComponent }, // pages/estimations
   {
     path: `new/:${SESSION_ID_PARAM}`, // pages/estimation/3
     component: EstimationHomeComponent,

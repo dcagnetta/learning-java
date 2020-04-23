@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { HttpBaseService } from '@ng-websocket-app/shared/core';
+import { ApiResponse, HttpBaseService } from '@ng-websocket-app/shared/core';
 import { EstimationData } from './interfaces/estimation-data';
 import { ENV } from '@ng-websocket-app/shared/environments';
 import { EstimationItem } from '../..';
@@ -23,7 +23,7 @@ export class EstimationDataService extends HttpBaseService implements Estimation
     ] );
   }
 
-  create( item: EstimationItem ): Observable<any> {
+  create( item: EstimationItem ): Observable<ApiResponse> {
     // console.log('create item', item);
-    return super.post<any>( this._baseUrl + '/create-item', item );  }
+    return super.post<ApiResponse>( this._baseUrl + '/create-item', item );  }
 }

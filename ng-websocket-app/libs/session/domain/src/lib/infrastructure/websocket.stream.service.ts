@@ -19,6 +19,7 @@ export class WebsocketStreamService implements WebsocketStream, OnDestroy {
   }
 
   connect( username: string ): void {
+    console.log( 'Attempting to connect with username: ', username );
     //connect to stomp where stomp endpoint is exposed
     //let ws = new SockJS(http://localhost:8080/greeting);
     const ws = new WebSocket( this.environment.baseUrls.websocketUrl );
