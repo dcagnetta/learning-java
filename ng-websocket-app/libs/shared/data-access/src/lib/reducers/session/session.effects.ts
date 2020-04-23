@@ -13,7 +13,7 @@ export class SessionEffects {
   navigateToNewSession$ = createEffect(() =>
     this.actions$.pipe(
       ofType(StartSession),
-      tap(action => this.router.navigate(['pages','estimation', action.id]) )
+      tap(action => this.router.navigate(['pages','estimation', 'new', action.id]) )
     ), { dispatch: false });
 
   navigateToJoinSession$ = createEffect(() =>
